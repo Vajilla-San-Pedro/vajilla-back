@@ -9,7 +9,7 @@ const port = process.env.PORT || 5001;
 
 // Configuración de CORS
 const corsOptions = {
-  origin: ['https://vajilla-front.onrender.com', 'http://localhost:5173'], 
+  origin: ['https://vajillaymanteleriazonaoeste.netlify.app', 'http://localhost:5173'], 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type'],
 };
