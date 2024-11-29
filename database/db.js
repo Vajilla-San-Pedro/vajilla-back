@@ -1,32 +1,23 @@
-const mysql = require("mysql");
+const mongoose = require("mongoose");
+require("dotenv").config(); // Cargar las variables de entorno desde .env
+const Product = require("../models/Product"); // Asegúrate de que el path sea correcto
 
-const conexion = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  password: "123456",
-  database: "vajilla",
-});
+// La URI de conexión que obtuviste de MongoDB Atlas
+const uri = process.env.MONGO_URI;
 
-// Conectar a la base de datos
-function connectToDatabase() {
-  conexion.connect((err) => {
-    if (err) {
-      console.log("Error en la conexión a la base de datos:", err);
-      setTimeout(connectToDatabase, 2000); 
-    } else {
-      console.log("Conectado a la base de datos");
-    }
-  });
-}
-
-conexion.on('error', (err) => {
-  console.error("Error en la base de datos:", err);
-  if (err.code === 'PROTOCOL_ENQUEUE_AFTER_FATAL_ERROR') {
-    console.log('Reconectando a la base de datos...');
-    conexion.destroy(); 
-    connectToDatabase(); 
+// Función para conectar a la base de datos con Mongoose
+const connectDB = async () => {
+  try {
+    // Conectar con la base de datos
+    await mongoose.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  } catch (error) {
+    console.error("Error al conectar a MongoDB:", error);
+    process.exit(1); // Termina el proceso si la conexión falla
   }
-});
+};
 
-connectToDatabase();
-module.exports = conexion;
+// Exportar la función de conexión
+module.exports = connectDB;

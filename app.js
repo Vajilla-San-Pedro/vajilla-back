@@ -1,14 +1,26 @@
 const express = require('express');
+const connectDB = require('./database/db');
+const productRoutes = require('./router');   // Asegúrate de que este archivo tenga la ruta correcta
 const app = express();
-const cors = require('cors');
+const cors = require('cors'); // Importa el paquete cors
 
-const port = process.env.PORT || 5000;
 
-app.use(cors());
+const port = process.env.PORT || 5001;
 
-app.use('/', require('./router'));
-    
+// Configuración de CORS
+const corsOptions = {
+  origin: ['https://vajillaymanteleriazonaoeste.netlify.app', 'http://localhost:5173'], // Permite solicitudes desde estas URLs
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type'],
+};
+app.use(cors(corsOptions));
+
+// Conectar a la base de datos
+connectDB();
+
+// Usar el prefijo '/products' para las rutas de productos
+app.use('/products', productRoutes);
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-  });
+  console.log(`Server is running on port ${port}`);
+});
