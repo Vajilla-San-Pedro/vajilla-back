@@ -1,5 +1,5 @@
 import express from 'express';
-const connectDB = require('../database/db');
+const connectDB = require('./../database/db');
 const productRoutes = require('../router');   // Asegúrate de que este archivo tenga la ruta correcta
 const app = express();
 const cors = require('cors'); // Importa el paquete cors
