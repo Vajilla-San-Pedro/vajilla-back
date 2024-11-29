@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 const connectDB = require('../database/db');
 const productRoutes = require('../router');   // Asegúrate de que este archivo tenga la ruta correcta
 const app = express();
