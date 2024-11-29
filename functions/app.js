@@ -21,7 +21,7 @@ connectDB();
 // Usar el prefijo '/products' para las rutas de productos
 app.use('/products', productRoutes);
 
-app.use('netlify/functions/app', productRoutes);
+app.use('/.netlify/functions/app', productRoutes);
 export const handler = serverless(app);
 
 app.listen(port, () => {
