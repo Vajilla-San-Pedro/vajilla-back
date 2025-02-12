@@ -18,11 +18,12 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 try {
-  AppDataSource.initialize();
+  await AppDataSource.initialize();
   console.log("Database initialized");
 } catch (error) {
   console.log("Error initializing the database", error);
 }
+
 
 app.use("/products", productRoutes);
 
