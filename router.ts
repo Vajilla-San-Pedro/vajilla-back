@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 const router = express.Router();
 import { Product } from "./models/Product"; 
-import { AppDataSource } from "database/db";
+import { AppDataSource } from "./database/db";
 
 router.get("/", async (req: Request, res: Response) => {
   try {

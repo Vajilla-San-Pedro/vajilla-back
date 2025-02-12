@@ -18,7 +18,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 try {
-  await AppDataSource.initialize();
+  AppDataSource.initialize();
   console.log("Database initialized");
 } catch (error) {
   console.log("Error initializing the database", error);

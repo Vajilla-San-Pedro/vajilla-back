@@ -2,11 +2,10 @@
   "name": "vajilla-back",
   "version": "1.0.0",
   "main": "dist/app.ts",
-  "type": "module",
   "scripts": {
     "dev": "tsx watch app.ts",
     "build": "pkgroll",
-    "start": "ts-node src/app.ts"
+    "start": "node dist/app.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -25,7 +24,6 @@
     "@types/mongoose": "^5.7.36",
     "@types/node": "^16.18.126",
     "pkgroll": "^2.5.1",
-    "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
     "typescript": "^4.9.5"
   }

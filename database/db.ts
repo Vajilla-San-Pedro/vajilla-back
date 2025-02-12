@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import { Product } from "models/Product";
+import { Product } from "../models/Product";
 import { DataSource } from "typeorm";
 
 
