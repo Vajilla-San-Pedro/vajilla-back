@@ -1,6 +1,6 @@
 import express from "express";
-import { AppDataSource } from "./database/db.js";
-import productRoutes from "./router.js";
+import { AppDataSource } from "./database/db";
+import productRoutes from "./router";
 const app = express();
 import cors from "cors";
 
