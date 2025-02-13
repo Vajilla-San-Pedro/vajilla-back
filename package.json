@@ -1,7 +1,7 @@
 {
   "name": "vajilla-back",
   "version": "1.0.0",
-  "main": "app.ts",
+  "main": "dist/app.ts",
   "scripts": {
     "dev": "tsx watch app.ts",
     "build": "tsc",
