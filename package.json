@@ -1,11 +1,11 @@
 {
   "name": "vajilla-back",
   "version": "1.0.0",
-  "main": "dist/app.ts",
+  "main": "app.ts",
   "scripts": {
     "dev": "tsx watch app.ts",
     "build": "pkgroll",
-    "start": "tsx dist/app.js"
+    "start": "node dist/app.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
