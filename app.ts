@@ -17,13 +17,16 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-try {
-  AppDataSource.initialize();
-  console.log("Database initialized");
-} catch (error) {
-  console.log("Error initializing the database", error);
-}
-
+AppDataSource.initialize()
+  .then(() => {
+    console.log("Database initialized");
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Error initializing the database", error);
+  });
 
 app.use("/products", productRoutes);
 

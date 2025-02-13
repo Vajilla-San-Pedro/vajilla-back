@@ -11,6 +11,6 @@ export const AppDataSource = new DataSource({
   type: "postgres",
   url: DATABASE_URL,
   entities: [Product],
-  synchronize: true,
+  synchronize: false,
   logging: true,
 });
