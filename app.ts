@@ -29,7 +29,3 @@ AppDataSource.initialize()
   });
 
 app.use("/products", productRoutes);
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
